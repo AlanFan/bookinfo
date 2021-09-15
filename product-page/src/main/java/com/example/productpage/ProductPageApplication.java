@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class ProductPageApplication {
 
-    String url = "http://details";
+    String url = "http://details:8080";
 
     @GetMapping
     public String hello() {
