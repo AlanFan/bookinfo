@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Set;
@@ -20,8 +22,9 @@ public class DetailsApplication {
     String version;
 
     @GetMapping("/name")
-    public String name(@RequestHeader HttpHeaders httpHeaders) {
+    public String name(@RequestHeader HttpHeaders httpHeaders, HttpServletRequest request) {
 
+        System.out.println("remote host: "+request.getRemoteHost());
 
         Set<String> set = httpHeaders.keySet();
         Iterator it = set.iterator();
