@@ -20,6 +20,7 @@ spec:
         imagePullPolicy: IfNotPresent
         image: registry.access.redhat.com/ubi7/ubi:7.9
         command: ["python","-m","SimpleHTTPServer"]
+        workingDir: /etc
         ports:
         - containerPort: 8000
           protocol: TCP
