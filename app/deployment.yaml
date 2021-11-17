@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: http
+  name: http
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http
+  template:
+    metadata:
+      labels:
+        app: http
+    spec:
+      containers:
+      - name: http
+        imagePullPolicy: IfNotPresent
+        image: registry.access.redhat.com/ubi8/ubi:8.5
+        command: ["python","-m","SimpleHTTPServer"]
+        ports:
+        - containerPort: 8000
+          protocol: TCP
