@@ -18,7 +18,7 @@ spec:
       containers:
       - name: http
         imagePullPolicy: IfNotPresent
-        image: registry.access.redhat.com/ubi8/ubi:8.5
+        image: registry.access.redhat.com/ubi7/ubi:7.9
         command: ["python","-m","SimpleHTTPServer"]
         ports:
         - containerPort: 8000
